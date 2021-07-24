@@ -8,7 +8,7 @@ const redis = new Redis({
   port: process.env.REDIS_PORT as unknown as number,
   password: process.env.REDIS_PASSWORD as string
 });
-console.log(redis)
+
 export default async function (req: VercelRequest, res: VercelResponse) {
   
   const configurations = {
@@ -23,6 +23,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     removeOnFailure: false,
     redisScanCount: 100,
   }
+  console.log(redis)
   //@ts-ignore
   const Queue: BeeQueue = new BeeQueue(process.env.QUEUE_NAME as string, configurations);
   console.log('olá mundo')
