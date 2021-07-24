@@ -3,6 +3,7 @@ import { Redis } from "ioredis";
 import { processor_skelecton, quee_element } from "../protocols";
 //@ts-ignore
 import bqScripts from 'bee-queue/lib/lua';
+import { RedisError, ReplyError } from "redis";
 export default class processor implements processor_skelecton<quee_element> {
   constructor(
     private readonly Queue: BeeQueue,
@@ -13,8 +14,9 @@ export default class processor implements processor_skelecton<quee_element> {
 
     const queued = await job.timeout(3000).retries(2).save();
     //@ts-ignore
-    job.save(async (err, job: quee_element) => {
+    job.save(async (err: ReplyError, job: quee_element) => {
       if (err) {
+        console.log(err.command, "EU estou aqui")
         console.error(`failed creating job`);
         // Known error when redis has not all lua scripts loaded properly
         if (err.command === 'EVALSHA') {
