@@ -1,0 +1,29 @@
+{
+  "name": "agenda_realtime_stats",
+  "version": "1.0.0",
+  "description": "The agendaSo realtime statistics generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kafir-coder/agenda_realtime_stats.git"
+  },
+  "author": "Caio Tony",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kafir-coder/agenda_realtime_stats/issues"
+  },
+  "homepage": "https://github.com/kafir-coder/agenda_realtime_stats#readme",
+  "dependencies": {
+    "bee-queue": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "ioredis": "^4.27.6",
+    "mongoose": "^5.13.3"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/ioredis": "^4.26.6"
+  }
+}
