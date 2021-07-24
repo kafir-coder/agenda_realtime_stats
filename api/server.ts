@@ -25,6 +25,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
   //@ts-ignore
   const Queue: BeeQueue = new BeeQueue(process.env.QUEUE_NAME as string, configurations);
+  console.log('olá mundo')
   const dispatcher = new processor(Queue, redis);
   await dispatcher.enqueue(req.body)
   await dispatcher.process(req.body).then(result => {
