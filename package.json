@@ -4,7 +4,7 @@
   "description": "The agendaSo realtime statistics generator",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only api/server.ts",
+    "dev": "dev",
     "test": "npm test",
     "deploy": "vercel"
   },
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/ioredis": "^4.26.6",
+    "@vercel/node": "^1.11.1",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"
   }
