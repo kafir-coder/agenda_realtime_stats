@@ -16,7 +16,7 @@ export default class processor implements processor_skelecton<quee_element> {
     //@ts-ignore
     job.save(async (err: ReplyError, job: quee_element) => {
       if (err) {
-        console.log(err.command, "EU estou aqui")
+        console.log(err.command, "EU estou aqui", "ma")
         console.error(`failed creating job`);
         // Known error when redis has not all lua scripts loaded properly
         if (err.command === 'EVALSHA') {
