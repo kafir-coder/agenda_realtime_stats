@@ -27,7 +27,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const Queue: BeeQueue = new BeeQueue(process.env.QUEUE_NAME as string, configurations);
   const dispatcher = new processor(Queue);
   await dispatcher.enqueue(req.body)
-  await dispatcher.process(redis, req.body).then(result => {
+  await dispatcher.process(req.body).then(result => {
     return res.status(200).send(`OK`);
   });
 }
